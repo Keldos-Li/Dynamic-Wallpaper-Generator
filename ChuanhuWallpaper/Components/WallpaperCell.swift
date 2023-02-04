@@ -38,22 +38,23 @@ struct WallpaperCell<Actions: View>: View {
             Text(wallpaper.fileName)
                 .font(.caption)
                 .foregroundColor(.secondary)
-
+                Spacer()
             VStack {
                 VStack(alignment: .leading) {
                     if mode == .time {
-                        Text(wallpaper.time, style: .time)
+                        Text(wallpaper.time, style: .time).bold()
                     } else {
                         if let altitude = wallpaper.altitude,
                            altitude.isNormal {
-                            Text("Altitude: \(String(format: "%.2f", altitude))")
+                            Text("Altitude: \(String(format: "%.2f", altitude))").bold()
                         }
                         if let azimuth = wallpaper.azimuth,
                            azimuth.isNormal {
-                            Text("Azimuth: \(String(format: "%.2f", azimuth))")
+                            Text("Azimuth: \(String(format: "%.2f", azimuth))").bold()
                         }
                     }
                 }
+                Spacer()
                 HStack(spacing: 10) {
                     if wallpaper.isFor == .light {
                         Image(systemName: "sun.max")
